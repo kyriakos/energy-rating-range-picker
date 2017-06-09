@@ -1,0 +1,28 @@
+.rheostat-horizontal {
+  .rheostat-background {
+    height: 1px;
+    top: 6px;
+  }
+
+  .rheostat-progress {
+    height: 4px;
+    top: 5px;
+    background: #2c9e29;
+  }
+
+  button {
+    background: #d8d8d8;
+    border-radius: 50%;
+    border-width: 3px;
+    cursor: pointer;
+    transition: transform .2s;
+    &:before, &:after {
+      display: none;
+    }
+
+    &:hover {
+      transform: scale(1.2);
+      transition: transform .2s;
+    }
+  }
+}

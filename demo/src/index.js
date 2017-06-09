@@ -7,7 +7,7 @@ class Demo extends Component {
   render() {
     return <div>
       <h1>rating-picker Demo</h1>
-      <Example/>
+      <Example min={3} max={5} potential={'F'} />
     </div>
   }
 }

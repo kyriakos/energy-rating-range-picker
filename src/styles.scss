@@ -1,0 +1,196 @@
+$A: #007c2d;
+$B: #2c9e29;
+$C: #a3d109;
+$D: #fdfb00;
+$E: #f1c300;
+$F: #e67b17;
+$G: #de0021;
+
+@import "rheostat-custom";
+
+body {
+  background: #000;
+}
+
+.noUi-base {
+  background: none;
+}
+
+.rating-picker {
+  h3 {
+    color: #f0f0f0;
+  }
+}
+
+.RatingIndicator {
+  ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    li {
+      display: inline-block;
+      color: black;
+      opacity: 1;
+      font-weight: lighter;
+      text-align: center;
+      width: calc(100% / 7 - 4px);
+      margin: 0 2px;
+      line-height: 2.5em;
+      border-radius: .3em;
+      opacity: .5;
+      &.active {
+        opacity: 1;
+      }
+
+      &:nth-child(1) {
+        background: lighten(desaturate($A, 85%), 15%);
+      }
+      &:nth-child(2) {
+        background: lighten(desaturate($B, 85%), 15%);
+      }
+      &:nth-child(3) {
+        background: lighten(desaturate($C, 85%), 15%);
+      }
+      &:nth-child(4) {
+        background: lighten(desaturate($D, 85%), 15%);
+      }
+      &:nth-child(5) {
+        background: lighten(desaturate($E, 85%), 15%);
+      }
+      &:nth-child(6) {
+        background: lighten(desaturate($F, 85%), 15%);
+      }
+      &:nth-child(7) {
+        background: lighten(desaturate($G, 85%), 15%);
+      }
+
+      &:nth-child(1) {
+        &.active {
+          background: $A;
+        }
+      }
+      &:nth-child(2) {
+        &.active {
+          background: $B;
+        }
+      }
+      &:nth-child(3) {
+        &.active {
+          background: $C;
+        }
+      }
+      &:nth-child(4) {
+        &.active {
+          background: $D;
+        }
+      }
+      &:nth-child(5) {
+        &.active {
+          background: $E;
+        }
+      }
+      &:nth-child(6) {
+        &.active {
+          background: $F;
+        }
+      }
+      &:nth-child(7) {
+        &.active {
+          background: $G;
+        }
+      }
+    }
+
+  }
+}
+
+.PotentialRating {
+  ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    li {
+      display: inline-block;
+      color: black;
+      opacity: .5;
+      font-weight: lighter;
+      text-align: center;
+      cursor: pointer;
+      width: calc(100% / 7 - 4px);
+      margin: 0 2px;
+      border-radius: .3em;
+      line-height: 2.5em;
+      &.enabled {
+        opacity: 1;
+        &.selected {
+          //transform: translateY(-4px);
+          //box-shadow: #fff 0px 0px 4px;
+        }
+
+      }
+
+
+      
+      &:nth-child(1) {
+        background: lighten(desaturate($A, 85%), 15%);
+      }
+      &:nth-child(2) {
+        background: lighten(desaturate($B, 85%), 15%);
+      }
+      &:nth-child(3) {
+        background: lighten(desaturate($C, 85%), 15%);
+      }
+      &:nth-child(4) {
+        background: lighten(desaturate($D, 85%), 15%);
+      }
+      &:nth-child(5) {
+        background: lighten(desaturate($E, 85%), 15%);
+      }
+      &:nth-child(6) {
+        background: lighten(desaturate($F, 85%), 15%);
+      }
+      &:nth-child(7) {
+        background: lighten(desaturate($G, 85%), 15%);
+      }
+
+
+      &:nth-child(1) {
+        &.enabled {
+          background: $A;
+        }
+      }
+      &:nth-child(2) {
+        &.enabled {
+          background: $B;
+        }
+      }
+      &:nth-child(3) {
+        &.enabled {
+          background: $C;
+        }
+      }
+      &:nth-child(4) {
+        &.enabled {
+          background: $D;
+        }
+      }
+      &:nth-child(5) {
+        &.enabled {
+          background: $E;
+        }
+      }
+      &:nth-child(6) {
+        &.enabled {
+          background: $F;
+        }
+      }
+      &:nth-child(7) {
+        &.enabled {
+          background: $G;
+        }
+      }
+
+    }
+  }
+}
+
