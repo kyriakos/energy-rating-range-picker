@@ -24,9 +24,7 @@
   "devDependencies": {
     "babel-plugin-react-html-attrs": "^2.0.0",
     "nwb": "0.16.x",
-    "nwb-sass": "^0.8.0",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "nwb-sass": "^0.8.0"
   },
   "author": "Kyriakos Ktorides",
   "homepage": "http://www.ktorides.com",
@@ -37,6 +35,8 @@
   ],
   "dependencies": {
     "classnames": "^2.2.5",
-    "rheostat": "^2.1.0"
+    "rheostat": "^2.1.0",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
   }
 }
