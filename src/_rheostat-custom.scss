@@ -2,12 +2,14 @@
   .rheostat-background {
     height: 1px;
     top: 6px;
+    border-color: #aaa;
+    background-color: #aaa;
   }
 
   .rheostat-progress {
     height: 4px;
     top: 5px;
-    background: #2c9e29;
+    background: #fff;
   }
 
   button {
@@ -25,4 +27,6 @@
       transition: transform .2s;
     }
   }
+
+  margin: 0 7.5%;
 }

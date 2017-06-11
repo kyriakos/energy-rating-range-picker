@@ -24,10 +24,12 @@ export default class extends Component {
     return <div className="rating-picker">
       <h3>Rating</h3>
       <SelectionIndicator min={this.state.min} max={this.state.max}/>
-      <Rheostat min={1} max={7} values={[ this.state.min, this.state.max ]} snap={true}
-                onValuesUpdated={this.setSlide.bind(this)}/>
+      <div className="rating-rheostat">
+        <Rheostat min={1} max={7} values={[ this.state.min, this.state.max ]} snap={true}
+                  onValuesUpdated={this.setSlide.bind(this)}/>
+      </div>
       <h3>Potential Rating</h3>
-      <PotentialRating value={this.state.potential} start={this.state.max} />
+      <PotentialRating value={this.state.potential} start={this.state.min}/>
     </div>
   }
 }
