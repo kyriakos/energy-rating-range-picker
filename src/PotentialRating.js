@@ -11,11 +11,16 @@ export default class extends Component {
   }
 
   itemSelected (label, selectionState) {
+    let selected = '';
     if (selectionState) {
-      this.setState({ selected: label });
-    } else {
-      this.setState({ selected: '' });
+      selected = label;
     }
+    if (typeof this.props.potentialChanged === 'function') {
+
+      this.props.potentialChanged(selected);
+    }
+
+    this.setState({ selected: selected });
   }
 
   render () {

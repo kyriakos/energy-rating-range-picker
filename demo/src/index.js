@@ -7,7 +7,7 @@ class Demo extends Component {
   render() {
     return <div>
       <h1>rating-picker Demo</h1>
-      <Example min={3} max={5} potential={'F'} />
+      <Example min={3} max={5} potential={'F'} includeFormElements="true" />
     </div>
   }
 }
