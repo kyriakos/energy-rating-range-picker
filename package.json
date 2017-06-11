@@ -31,7 +31,7 @@
   "author": "Kyriakos Ktorides",
   "homepage": "http://www.ktorides.com",
   "license": "MIT",
-  "repository": "",
+  "repository": "https://github.com/kyriakos/energy-rating-range-picker",
   "keywords": [
     "react-component"
   ],
