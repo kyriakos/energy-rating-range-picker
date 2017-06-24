@@ -30,9 +30,8 @@
 
       &.enabled {
         &.selected {
-          transform: translateY(-0px) scale(1.2);
+          transform: translateY(-0px) scaleX(1.12) scaleY(1.25);
           transition: .4s transform;
-          box-shadow: #000 0 0 5px;
         }
       }
 

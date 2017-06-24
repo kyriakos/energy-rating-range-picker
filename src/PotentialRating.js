@@ -23,15 +23,21 @@ export default class extends Component {
     this.setState({ selected: selected });
   }
 
+  ratingToNumber(r) {
+      return r.charCodeAt(0) - 65;
+  }
+
   render () {
 
     const values = [ 'A', 'B', 'C', 'D', 'E', 'F', 'G' ];
-    let selected;
+      let ratingNum = this.ratingToNumber(this.state.selected);
+      let selected;
 
     return <div className="PotentialRating">
       <ul>
         {values.map((v, i) => {
-          selected = (v === this.state.selected);
+          console.log(this.ratingToNumber(this.state.selected), i,v,this.state.selected);
+          selected = (ratingNum >= i);
           return <PotentialRatingElement selected={selected} label={v} key={i} clickable={i + 1 < this.props.start}
                                          itemSelected={this.itemSelected.bind(this)}/>
         })}
