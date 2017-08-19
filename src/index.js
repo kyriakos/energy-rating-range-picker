@@ -9,48 +9,59 @@ import PotentialRating from "./PotentialRating";
 
 export default class extends Component {
 
-  constructor (props) {
-    super(props);
-    this.state = { min: props.min, max: props.max, potential: props.potential };
-  }
+    constructor(props) {
+        super(props);
+        this.state = {min: props.min, max: props.max, potential: props.potential};
+        this.valueChanged = this.valueChanged.bind(this);
+    }
 
-  setSlide (v) {
-    const newState = { ...this.state, min: parseInt(v.values[ 0 ]), max: parseInt(v.values[ 1 ]) };
-    this.setState(newState);
-  }
+    setSlide(v) {
+        const newState = {...this.state, min: parseInt(v.values[0]), max: parseInt(v.values[1])};
+        this.setState(newState);
+    }
 
-  updatePotential (p) {
-    this.setState({ ...this.state, potential: p });
-  }
+    updatePotential(p) {
+        this.setState({...this.state, potential: p});
+    }
 
-  ratingNumberToLetter (n) {
-    return String.fromCharCode(n + 64);
-  }
+    ratingNumberToLetter(n) {
+        return String.fromCharCode(n + 64);
+    }
 
-  render () {
+    valueChanged(v) {
+        if (typeof this.props.valueChanged === 'function') {
+            this.props.valueChanged(
+                {
+                    ...this.state, source: 'RatingPicker'
+                }
+            );
+        }
+    }
 
-    let inputElements;
-    if (this.props.includeFormElements) {
-      inputElements = <div>
-        <input type="hidden" name="energyrating_low" value={this.ratingNumberToLetter(this.state.min)}/>
-        <input type="hidden" name="energyrating_high" value={this.ratingNumberToLetter(this.state.max)}/>
-        <input type="hidden" name="energyrating_potential" value={this.state.potential}/>
-      </div>;
-    } else inputElements = '';
+    render() {
 
-    return (
-      <div className="rating-picker">
-        <h4>Rating</h4>
-        <SelectionIndicator min={this.state.min} max={this.state.max}/>
-        <div className="rating-rheostat">
-          <Rheostat min={1} max={7} values={[ this.state.min, this.state.max ]} snap={true}
-                    onValuesUpdated={this.setSlide.bind(this)}/>
-        </div>
-        <h4>Potential Rating</h4>
-        <PotentialRating value={this.state.potential} start={this.state.min}
-                         potentialChanged={this.updatePotential.bind(this)}/>
+        let inputElements;
+        if (this.props.includeFormElements) {
+            inputElements = <div>
+                <input type="hidden" name="energyrating_low" value={this.ratingNumberToLetter(this.state.min)}/>
+                <input type="hidden" name="energyrating_high" value={this.ratingNumberToLetter(this.state.max)}/>
+                <input type="hidden" name="energyrating_potential" value={this.state.potential}/>
+            </div>;
+        } else inputElements = '';
 
-        {inputElements}
-      </div>);
-  }
+        return (
+            <div className="rating-picker">
+                <h4>Rating</h4>
+                <SelectionIndicator min={this.state.min} max={this.state.max}/>
+                <div className="rating-rheostat">
+                    <Rheostat min={1} max={7} values={[this.state.min, this.state.max]} snap={true}
+                              onValuesUpdated={this.setSlide.bind(this)} onChange={this.valueChanged}/>
+                </div>
+                <h4>Potential Rating</h4>
+                <PotentialRating value={this.state.potential} start={this.state.min}
+                                 potentialChanged={this.updatePotential.bind(this)}/>
+
+                {inputElements}
+            </div>);
+    }
 }
