@@ -6,6 +6,7 @@ import React, {Component} from "react";
 import Rheostat from "rheostat";
 import SelectionIndicator from "./RatingSelectionIndicator";
 import PotentialRating from "./PotentialRating";
+import FilterHelp from "enerfund-filter-help";
 
 export default class extends Component {
 
@@ -52,14 +53,21 @@ export default class extends Component {
         return (
             <div className="rating-picker">
                 <h4>Rating</h4>
-                <SelectionIndicator min={this.state.min} max={this.state.max}/>
-                <div className="rating-rheostat">
-                    <Rheostat min={1} max={7} values={[this.state.min, this.state.max]} snap={true}
-                              onValuesUpdated={this.setSlide.bind(this)} onChange={this.valueChanged}/>
-                </div>
+                <FilterHelp
+                    help="Current energy rating converted into a linear 'A to G' rating (where A is the most energy efficient and G is the least energy efficient)">
+                    <SelectionIndicator min={this.state.min} max={this.state.max}/>
+
+                    <div className="rating-rheostat">
+                        <Rheostat min={1} max={7} values={[this.state.min, this.state.max]} snap={true}
+                                  onValuesUpdated={this.setSlide.bind(this)} onChange={this.valueChanged}/>
+                    </div>
+                </FilterHelp>
                 <h4>Potential Rating</h4>
-                <PotentialRating value={this.state.potential} start={this.state.min}
-                                 potentialChanged={this.updatePotential.bind(this)}/>
+                <FilterHelp
+                    help="Estimated potential energy rating converted into a linear 'A to G' rating (where A is the most energy efficient and G is the least energy efficient)">
+                    <PotentialRating value={this.state.potential} start={this.state.min}
+                                     potentialChanged={this.updatePotential.bind(this)}/>
+                </FilterHelp>
 
                 {inputElements}
             </div>);
