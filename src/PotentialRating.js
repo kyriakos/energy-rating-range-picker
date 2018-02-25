@@ -36,7 +36,6 @@ export default class extends Component {
     return <div className="PotentialRating">
       <ul>
         {values.map((v, i) => {
-          console.log(this.ratingToNumber(this.state.selected), i,v,this.state.selected);
           selected = (ratingNum >= i);
           return <PotentialRatingElement selected={selected} label={v} key={i} clickable={i + 1 < this.props.start}
                                          itemSelected={this.itemSelected.bind(this)}/>
